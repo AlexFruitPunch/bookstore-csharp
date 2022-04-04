@@ -13,22 +13,29 @@ string Titolo = Console.ReadLine();
 Console.Write("Inserisci l'autore del libro: ");
 string Autore = Console.ReadLine();
 Console.Write("Inserisci il codice ISBN: ");
-int ISBN = int.Parse(Console.ReadLine());
+long ISBN = long.Parse(Console.ReadLine());
 Console.Write("Inserisci il numero delle pagine ");
 int numeroDiPagine = int.Parse(Console.ReadLine());
 Console.Write("Inserisci il peso dell'articolo in grammi: ");
 int pesoLibro = int.Parse(Console.ReadLine());
 
 //Misure del libro
-Console.Write("Inserisci la larghezza del libro in cm");
+Console.Write("Inserisci la larghezza del libro in cm: ");
 double largezza = double.Parse(Console.ReadLine());
-Console.Write("Inserisci la profondità del libro in cm");
+Console.Write("Inserisci la profondità del libro in cm: ");
 double profondità = double.Parse(Console.ReadLine());
-Console.Write("Inserisci l'altezza del libro in cm");
+Console.Write("Inserisci l'altezza del libro in cm: ");
 double altezza = double.Parse(Console.ReadLine());
 
-Console.Write("Inserisci la valutazione media: ");
-double valutazioneMedia = double.Parse(Console.ReadLine());
+//controllo sulla valutazione media
+double valutazioneMedia;
+do
+{
+    Console.Write("Inserisci la valutazione media [da 1 a 5]: ");
+    valutazioneMedia = double.Parse(Console.ReadLine());
+} while(valutazioneMedia > 5 || valutazioneMedia < 1);
+
+
 Console.Write("Inserisci il numero di recensioni: ");
 int NumeroRecensioni = int.Parse(Console.ReadLine());
 
@@ -38,9 +45,11 @@ string sceltaKindle;
 bool copertinaFlessibile = true;
 string sceltaCopertinaFlessibile;
 
-Console.Write("Il libro ha il Kindle ? [si/no]");
-sceltaKindle = Console.ReadLine();
+//controllo sull'imput di Kindle e copertina flessibile 
 do {
+    Console.Write("Il libro ha il Kindle ? [si/no] ");
+    sceltaKindle = Console.ReadLine();
+
     if (sceltaKindle == "si")
     {
         Kindle = true;
@@ -48,12 +57,16 @@ do {
     {
         Kindle = false;
     }
-} while (sceltaKindle == "si" || sceltaKindle == "no");
+    else
+    {
+        Console.WriteLine("imput errato, inserire per piacere solo si o no");
+    }
+} while (sceltaKindle != "si" && sceltaKindle != "no");
 
-Console.Write("Il libro ha la copertina flessibile ? [si/no]");
-sceltaCopertinaFlessibile = Console.ReadLine();
 do
 {
+    Console.Write("Il libro ha la copertina flessibile ? [si/no] ");
+    sceltaCopertinaFlessibile = Console.ReadLine();
     if (sceltaCopertinaFlessibile == "si")
     {
         copertinaFlessibile = true;
@@ -62,8 +75,13 @@ do
     {
         copertinaFlessibile = false;
     }
-} while (sceltaCopertinaFlessibile == "si" || sceltaCopertinaFlessibile == "no");
-
+    else
+    {
+        Console.WriteLine("imput errato, inserire per piacere solo si o no");
+    }
+} while (sceltaCopertinaFlessibile != "si" && sceltaCopertinaFlessibile != "no");
+//fine Controllo su kindle e copertina flessibile
+Console.WriteLine("\n");
 
 //Stampa a video delle informazioni raccolte
 
@@ -88,9 +106,11 @@ else
 
 if (copertinaFlessibile)
 {
-    Console.WriteLine("Copertina Flessibile disponibile: Si");
+    Console.WriteLine("Copertina Flessibile disponibile: Si\n");
 }
 else
 {
-    Console.WriteLine("Copertina Flessibile disponibile: No");
+    Console.WriteLine("Copertina Flessibile disponibile: No\n");
 }
+
+Console.WriteLine("\n---------------------------------------------------------");
