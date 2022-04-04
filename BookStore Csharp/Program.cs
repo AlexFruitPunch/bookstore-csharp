@@ -18,8 +18,8 @@ A questo punto stampiamo bene le informazioni acquisite sulla console, dove per 
 string Titolo = " The Witcher - Il guardiano degli innocenti.";
 string Autore = "Andrzej Sapkowski";
 string ISBN = "8842916595";
-string numeroDiPagine = "372 pagine";
-string pesoLibro = "500 g";
+int numeroDiPagine = 372;
+int pesoLibro = 500;
 
 //Misure del libro
 double largezza = 14.8;
@@ -30,12 +30,37 @@ double valutazioneMedia = 4.5;
 int NumeroRecensioni = 2381;
 
 //variabili Flag
-bool Kindle;
-bool copertinaFlessibile;
+bool Kindle = true;
+bool copertinaFlessibile = true;
 
 //Stampa a video delle informazioni raccolte
 
+Console.WriteLine("---IL LIBRO DI OGGI: " + Titolo + " di " + Autore + " -----\n");
+Console.WriteLine("Informazioni generiche:");
+Console.WriteLine("ISBN: " + ISBN);
+Console.WriteLine("Numero delle pagine: " + numeroDiPagine + " pagine");
+Console.WriteLine("Peso del libro: " + pesoLibro + " g");
+Console.WriteLine("Dimensione del libro: " + largezza + " cm x " + altezza + " cm x " + profondità + " cm\n");
+Console.WriteLine("Informazioni Amazon:");
+Console.WriteLine("Numero di Recensioni: " + NumeroRecensioni + " recensioni");
+Console.WriteLine("Valutazione Media: " + valutazioneMedia + " stelline");
 
+if (Kindle)
+{
+    Console.WriteLine("Kindle disponibile: Si");
+}
+else
+{
+    Console.WriteLine("Kindle disponibile: No");
+}
 
+if (copertinaFlessibile)
+{
+    Console.WriteLine("Copertina Flessibile disponibile: Si");
+}
+else
+{
+    Console.WriteLine("Copertina Flessibile disponibile: No");
+}
 
 
